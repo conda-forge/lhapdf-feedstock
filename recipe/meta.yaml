@@ -1,5 +1,5 @@
 {% set name = "lhapdf" %}
-{% set version = "6.4.0" %}
+{% set version = "6.5.0" %}
 
 package:
   name: {{ name }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: http://www.hepforge.org/archive/lhapdf/LHAPDF-{{ version }}.tar.gz
-  sha256: 7d2f0267e2d65b0ddee048553b342d7c893a6dbabe1e326cad62de0010dd810c
+  sha256: 494a45715cc6b0a324af14cff1090210d23ef71e647150237c651718911d1258
 
 build:
   skip: true  # [win]
-  number: 2
-  detect_binary_files_with_prefix: True
+  number: 0
+  detect_binary_files_with_prefix: true
 
 requirements:
   build:
@@ -31,7 +31,7 @@ test:
     - lhapdf-config
 
 about:
-  home: "https://lhapdf.hepforge.org/"
+  home: https://lhapdf.hepforge.org/
   summary: 'LHAPDF is a general purpose C++ interpolator, used for evaluating PDFs from discretised data files. '
   description: |
     LHAPDF is a library implementing a standard to represent Parton
@@ -47,7 +47,7 @@ about:
     "LHAPDF6: parton density access in the LHC precision era" Eur.Phys.J. C75
     (2015) 3, 132
     http://arxiv.org/abs/1412.7420
-  license:  GPL-3.0-only
+  license: GPL-3.0-only
   license_family: GPL
   license_file: COPYING
   doc_url: https://lhapdf.hepforge.org
