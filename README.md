@@ -1,11 +1,11 @@
-About lhapdf
-============
+About lhapdf-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lhapdf-feedstock/blob/main/LICENSE.txt)
 
 Home: https://lhapdf.hepforge.org/
 
 Package license: GPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lhapdf-feedstock/blob/main/LICENSE.txt)
 
 Summary: LHAPDF is a general purpose C++ interpolator, used for evaluating PDFs from discretised data files. 
 
