@@ -1,19 +1,19 @@
 {% set name = "lhapdf" %}
-{% set version = "6.5.0" %}
+{% set version = "6.5.4" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: http://www.hepforge.org/archive/lhapdf/LHAPDF-{{ version }}.tar.gz
-  sha256: 494a45715cc6b0a324af14cff1090210d23ef71e647150237c651718911d1258
+  url: https://lhapdf.hepforge.org/downloads/?f=LHAPDF-{{ version }}.tar.gz
+  sha256: 2443a4b32cc3b0597c8248bd6e25703ace9c91a7a253c5f60b1b5428ef9c869e
 
 build:
-  skip: true  # [win]
+  skip: true  # [win, osx-arm64]
   skip: True  # [python_impl == "pypy"]
 
-  number: 1
+  number: 0
   detect_binary_files_with_prefix: true
 
 requirements:
