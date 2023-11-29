@@ -1,13 +1,13 @@
 {% set name = "lhapdf" %}
-{% set version = "6.5.0" %}
+{% set version = "6.5.3" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: http://www.hepforge.org/archive/lhapdf/LHAPDF-{{ version }}.tar.gz
-  sha256: 494a45715cc6b0a324af14cff1090210d23ef71e647150237c651718911d1258
+  url: https://lhapdf.hepforge.org/downloads/?f=LHAPDF-{{ version }}.tar.gz
+  sha256: 57435cd695e297065d53e69bd29090765c934936b6a975ff8c559766f2230359
 
 build:
   skip: true  # [win]
