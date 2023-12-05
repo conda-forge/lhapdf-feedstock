@@ -81,6 +81,41 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>osx_64_python3.10.____cpythonpython_implcpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15974&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lhapdf-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.10.____cpythonpython_implcpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.11.____cpythonpython_implcpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15974&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lhapdf-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.11.____cpythonpython_implcpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.12.____cpythonpython_implcpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15974&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lhapdf-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.12.____cpythonpython_implcpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.8.____cpythonpython_implcpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15974&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lhapdf-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.8.____cpythonpython_implcpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.9.____cpythonpython_implcpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15974&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/lhapdf-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.9.____cpythonpython_implcpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>osx_arm64_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15974&branchName=main">
