@@ -24,8 +24,8 @@ requirements:
     - gnuconfig  # [unix]
     - {{ compiler('cxx') }}
     - make
-    - automake
-    - libtool
+    - automake  # [build_platform != target_platform]
+    - libtool   # [build_platform != target_platform]
   host:
     - python
     - cython <3
