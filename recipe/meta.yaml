@@ -12,10 +12,6 @@ source:
 build:
   skip: true  # [win]
   skip: true  # [python_impl == "pypy"]
-  skip: true  # [py==39]
-  skip: true  # [py==38]
-  skip: true  # [py==310]
-  skip: true  # [py==312]
 
   number: 1
   detect_binary_files_with_prefix: true
