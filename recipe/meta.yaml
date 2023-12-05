@@ -13,7 +13,7 @@ build:
   skip: true  # [win]
   skip: true  # [python_impl == "pypy"]
 
-  number: 1
+  number: 2
   detect_binary_files_with_prefix: true
 
 requirements:
@@ -24,6 +24,8 @@ requirements:
     - gnuconfig  # [unix]
     - {{ compiler('cxx') }}
     - make
+    - automake
+    - libtool
   host:
     - python
     - cython <3
