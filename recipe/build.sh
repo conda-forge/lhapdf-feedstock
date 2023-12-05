@@ -13,6 +13,8 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}
 fi
 make install
 
-cd wrappers
-make
-make install
+# cd wrappers
+# make
+# make install
+
+python -c "import lhapdf"
