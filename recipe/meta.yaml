@@ -13,7 +13,7 @@ build:
   skip: true  # [win]
   skip: true  # [python_impl == "pypy"]
 
-  number: 2
+  number: 3
   detect_binary_files_with_prefix: true
 
 requirements:
@@ -23,6 +23,7 @@ requirements:
     - cython <3                              # [build_platform != target_platform]
     - gnuconfig  # [unix]
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - make
     - automake  # [build_platform != target_platform]
     - libtool   # [build_platform != target_platform]
