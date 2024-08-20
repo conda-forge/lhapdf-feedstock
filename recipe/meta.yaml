@@ -39,10 +39,13 @@ requirements:
     - python
 
 test:
+  requires:
+    - cxx-compiler
+    - numpy
+  source_files:
+    - examples
   imports:
     - lhapdf
-  commands:
-    - lhapdf-config
 
 about:
   home: https://lhapdf.hepforge.org/
