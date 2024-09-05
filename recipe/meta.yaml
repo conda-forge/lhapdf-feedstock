@@ -6,38 +6,46 @@ package:
   version: {{ version }}
 
 source:
-  url: https://lhapdf.hepforge.org/downloads/?f=LHAPDF-{{ version }}.tar.gz
-  sha256: 2443a4b32cc3b0597c8248bd6e25703ace9c91a7a253c5f60b1b5428ef9c869e
+  url: https://gitlab.com/hepcedar/lhapdf/-/archive/lhapdf-{{ version }}/lhapdf-lhapdf-{{ version }}.tar.gz
+  sha256: ace8913781044ad542e378697fcd95a8535d510818bb74a6665f9fd2b132ac0f
+  patches:
+    # Apply patch to wrappers/python/build.py.in to build bindings with Cython
+    # https://gitlab.com/hepcedar/lhapdf/-/blob/c5b048f5794e483d85801d1ae39f42aaa46999dd/wrappers/python/build.py.in
+    - osx_patch.diff  # [osx]
 
 build:
   skip: true  # [win]
   skip: true  # [python_impl == "pypy"]
 
-  number: 4
+  number: 5
   detect_binary_files_with_prefix: true
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython <3                              # [build_platform != target_platform]
+    - cython >=0.24  # [build_platform != target_platform]
     - gnuconfig  # [unix]
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
     - make
-    - automake  # [build_platform != target_platform]
-    - libtool   # [build_platform != target_platform]
+    - automake
+    - autoconf
+    - libtool
   host:
     - python
-    - cython <3
+    - cython >=0.24
   run:
     - python
 
 test:
+  requires:
+    - cxx-compiler
+    - numpy
+  source_files:
+    - examples
   imports:
     - lhapdf
-  commands:
-    - lhapdf-config
 
 about:
   home: https://lhapdf.hepforge.org/
