@@ -17,7 +17,7 @@ build:
   skip: true  # [win]
   skip: true  # [python_impl == "pypy"]
 
-  number: 5
+  number: 6
   detect_binary_files_with_prefix: true
 
 requirements:
