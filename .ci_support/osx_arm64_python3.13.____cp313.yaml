@@ -28,6 +28,3 @@ python_impl:
 - cpython
 target_platform:
 - osx-arm64
-zip_keys:
-- - python
-  - channel_sources
