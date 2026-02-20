@@ -16,8 +16,9 @@ source:
 build:
   skip: true  # [win]
   skip: true  # [python_impl == "pypy"]
-
   number: 0
+  run_exports:
+    - {{ pin_subpackage("lhapdf", max_pin="x.x") }}
   detect_binary_files_with_prefix: true
 
 requirements:
