@@ -72,5 +72,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - conda-forge/hepmc3
     - scarlehoff
     - Zaharid
