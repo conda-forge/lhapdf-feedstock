@@ -32,6 +32,7 @@ requirements:
     - automake
     - autoconf
     - libtool
+    - wget
   host:
     - python
     - cython >=0.24
