@@ -22,7 +22,10 @@ autoreconf --install --force
 ./configure --prefix=$PREFIX CXXFLAGS="${CXXFLAGS}"
 
 make --jobs="${CPU_COUNT}"
+make install
+
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
+    lhapdf update
+    lhapdf get cteq6 CT10nlo MMHT2014nnlo68cl NNPDF31_nnlo_as_0118
     make check
 fi
-make install
