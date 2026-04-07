@@ -54,7 +54,7 @@ cd examples/
 echo -e "\n# Test example analyticpdf"
 "$CXX" analyticpdf.cc \
     -o analyticpdf \
-    $(lhapdf-config --cxxflags --ldflags) \
+    $(lhapdf-config --cxxflags --libs) \
     -Wl,-rpath,"$(lhapdf-config --libdir)"
 ./analyticpdf
 
@@ -66,7 +66,7 @@ lhapdf install CT10nlo &> /dev/null
 echo -e "\n# Test example compatibility"
 "$CXX" compatibility.cc \
     -o compatibility \
-    $(lhapdf-config --cxxflags --ldflags) \
+    $(lhapdf-config --cxxflags --libs) \
     -Wl,-rpath,"$(lhapdf-config --libdir)"
 ./compatibility
 
@@ -77,7 +77,7 @@ lhapdf install MSTW2008nnlo68cl &> /dev/null
 echo -e "\n# Test example hessian2replicas"
 "$CXX" hessian2replicas.cc \
     -o hessian2replicas \
-    $(lhapdf-config --cxxflags --ldflags) \
+    $(lhapdf-config --cxxflags --libs) \
     -Wl,-rpath,"$(lhapdf-config --libdir)"
 ./hessian2replicas MSTW2008nnlo68cl 1234 10
 
@@ -88,7 +88,7 @@ lhapdf install MSTW2008lo68cl &> /dev/null
 echo -e "\n# Test example reweight"
 "$CXX" reweight.cc \
     -o reweight \
-    $(lhapdf-config --cxxflags --ldflags) \
+    $(lhapdf-config --cxxflags --libs) \
     -Wl,-rpath,"$(lhapdf-config --libdir)"
 ./reweight CT10nlo/0 MSTW2008lo68cl/0
 
