@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -x
+set -ex
 
 if [[ $HOST == *apple* ]]; then
     # Bug for macOS as of lhapdf v6.1.1+

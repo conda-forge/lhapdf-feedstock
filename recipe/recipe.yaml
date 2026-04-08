@@ -1,34 +1,41 @@
-{% set name = "lhapdf" %}
-{% set version = "6.5.6" %}
+schema_version: 1
+
+context:
+  version: "6.5.6"
 
 package:
-  name: {{ name }}
-  version: {{ version }}
+  name: "lhapdf"
+  version: ${{ version }}
 
 source:
-  url: https://gitlab.com/hepcedar/lhapdf/-/archive/lhapdf-{{ version }}/lhapdf-lhapdf-{{ version }}.tar.gz
+  url: https://gitlab.com/hepcedar/lhapdf/-/archive/lhapdf-${{ version }}/lhapdf-lhapdf-${{ version }}.tar.gz
   sha256: 165143a5487d845d22e2d4dbe4ab4f51f09571756e80f71e3eacd7d412efb5d8
   patches:
     # Apply patch to wrappers/python/build.py.in to build bindings with Cython
     # https://gitlab.com/hepcedar/lhapdf/-/blob/c5b048f5794e483d85801d1ae39f42aaa46999dd/wrappers/python/build.py.in
-    - osx_patch.diff  # [osx]
+    - if: osx
+      then: osx_patch.diff
 
 build:
-  skip: true  # [win]
-  skip: true  # [python_impl == "pypy"]
-  number: 0
-  run_exports:
-    - {{ pin_subpackage("lhapdf", max_pin="x.x") }}
-  detect_binary_files_with_prefix: true
+  number: 1
+  skip:
+    - win
 
 requirements:
+  run_exports:
+    - ${{ pin_subpackage("lhapdf", upper_bound="x.x") }}
   build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython >=0.24  # [build_platform != target_platform]
-    - gnuconfig  # [unix]
-    - {{ compiler('cxx') }}
-    - {{ stdlib("c") }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler("c") }}
+    - if: build_platform != host_platform
+      then:
+        - cross-python_${{ host_platform }}
+        - python
+        - cython
+    - if: unix
+      then: gnuconfig
+    - ${{ stdlib("c") }}
+    - ${{ compiler("cxx") }}
     - make
     - automake
     - autoconf
@@ -36,22 +43,37 @@ requirements:
     - wget
   host:
     - python
-    - cython >=0.24
+    - cython
   run:
     - python
 
-test:
-  requires:
-    - cxx-compiler
-    - numpy
-  source_files:
-    - examples
-  imports:
-    - lhapdf
+tests:
+  - package_contents:
+      bin:
+        - lhapdf
+        - lhapdf-config
+      lib:
+        - LHAPDF
+      include:
+        - LHAPDF/LHAPDF.h
+      files:
+        - share/LHAPDF/lhapdf.conf
+
+  - python:
+      imports:
+        - lhapdf
+
+  - files:
+      source:
+        - examples
+    requirements:
+      run:
+        - cxx-compiler
+        - numpy
+    script: run_test.sh
 
 about:
-  home: https://lhapdf.hepforge.org/
-  summary: 'LHAPDF is a general purpose C++ interpolator, used for evaluating PDFs from discretised data files. '
+  summary: LHAPDF is a general purpose C++ interpolator, used for evaluating PDFs from discretised data files.
   description: |
     LHAPDF is a library implementing a standard to represent Parton
     Distribution Functions (PDFs) which is ubiquitous in the field of High Energy
@@ -67,10 +89,10 @@ about:
     (2015) 3, 132
     http://arxiv.org/abs/1412.7420
   license: GPL-3.0-only
-  license_family: GPL
   license_file: COPYING
-  doc_url: https://lhapdf.hepforge.org
-  dev_url: https://gitlab.com/hepcedar/lhapdf
+  homepage: https://lhapdf.hepforge.org/
+  repository: https://gitlab.com/hepcedar/lhapdf
+  documentation: https://lhapdf.hepforge.org
 
 extra:
   recipe-maintainers:
