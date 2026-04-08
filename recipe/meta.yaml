@@ -1,5 +1,5 @@
 {% set name = "lhapdf" %}
-{% set version = "6.5.5" %}
+{% set version = "6.5.6" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://gitlab.com/hepcedar/lhapdf/-/archive/lhapdf-{{ version }}/lhapdf-lhapdf-{{ version }}.tar.gz
-  sha256: d20d8fb71936403274caec5bd584c891592b96c6319175df51d9bb69db869bd8
+  sha256: 165143a5487d845d22e2d4dbe4ab4f51f09571756e80f71e3eacd7d412efb5d8
   patches:
     # Apply patch to wrappers/python/build.py.in to build bindings with Cython
     # https://gitlab.com/hepcedar/lhapdf/-/blob/c5b048f5794e483d85801d1ae39f42aaa46999dd/wrappers/python/build.py.in
@@ -16,8 +16,9 @@ source:
 build:
   skip: true  # [win]
   skip: true  # [python_impl == "pypy"]
-
-  number: 1
+  number: 0
+  run_exports:
+    - {{ pin_subpackage("lhapdf", max_pin="x.x") }}
   detect_binary_files_with_prefix: true
 
 requirements:
@@ -32,6 +33,7 @@ requirements:
     - automake
     - autoconf
     - libtool
+    - wget
   host:
     - python
     - cython >=0.24
