@@ -18,7 +18,7 @@ autoreconf --install --force
 
 ./configure --help
 
-./configure --prefix=$PREFIX CXXFLAGS="${CXXFLAGS}"
+./configure --prefix=$PREFIX CXXFLAGS="${CXXFLAGS}" --disable-static --enable-shared
 
 make --jobs="${CPU_COUNT}"
 
