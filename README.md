@@ -7,11 +7,11 @@ Home: https://lhapdf.hepforge.org/
 
 Package license: GPL-3.0-only
 
-Summary: LHAPDF is a general purpose C++ interpolator, used for evaluating PDFs from discretised data files. 
+Summary: LHAPDF is a general purpose C++ interpolator, used for evaluating PDFs from discretised data files.
 
 Development: https://gitlab.com/hepcedar/lhapdf
 
-Documentation: https://lhapdf.hepforge.org
+Documentation: https://lhapdf.hepforge.org/
 
 LHAPDF is a library implementing a standard to represent Parton
 Distribution Functions (PDFs) which is ubiquitous in the field of High Energy
@@ -26,7 +26,6 @@ Please make sure to cite the following paper if you use LHAPDF6
 "LHAPDF6: parton density access in the LHC precision era" Eur.Phys.J. C75
 (2015) 3, 132
 http://arxiv.org/abs/1412.7420
-
 
 Current build status
 ====================
