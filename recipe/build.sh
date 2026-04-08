@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -x
+set -ex
 
 if [[ $HOST == *apple* ]]; then
     # Bug for macOS as of lhapdf v6.1.1+
@@ -18,7 +18,7 @@ autoreconf --install --force
 
 ./configure --help
 
-./configure --prefix=$PREFIX CXXFLAGS="${CXXFLAGS}"
+./configure --prefix=$PREFIX CXXFLAGS="${CXXFLAGS}" --disable-static --enable-shared
 
 make --jobs="${CPU_COUNT}"
 
