@@ -7,14 +7,11 @@ if [[ $HOST == *apple* ]]; then
     # https://gitlab.com/hepcedar/lhapdf/-/blob/c5b048f5794e483d85801d1ae39f42aaa46999dd/INSTALL#L162-164
     export CFLAGS=-Qunused-arguments
     export CPPFLAGS=-Qunused-arguments
-
-    # As using autotools
-    # https://conda-forge.org/blog/2020/10/29/macos-arm64/#how-to-add-a-osx-arm64-build-to-a-feedstock
-    if [[ $HOST == *arm64-apple* ]]; then
-        # Get an updated config.sub and config.guess
-        cp $BUILD_PREFIX/share/gnuconfig/config.* .
-    fi
 fi
+
+# Get an updated config.sub and config.guess to support
+# cross-compilation with autotools
+cp "${BUILD_PREFIX}"/share/gnuconfig/config.* .
 
 autoreconf --install --force
 (cd wrappers/python && cython --include-dir . --cplus lhapdf.pyx)
